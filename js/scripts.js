@@ -26,43 +26,29 @@ let pokemonRepository = (
         function add(item){
             pokemonList.push(item)
         }
+        // Bonus Task
+        // https://www.30secondsofcode.org/articles/s/javascript-array-comparison
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+        function addv(object) {
+            let orginalKeys = Object.keys(object);
+            let newItemKeys = [ 'name', 'height', 'types' ];
+
+            if (typeof(object) == 'object' &&
+            (orginalKeys.length == newItemKeys.length &&
+                orginalKeys.every((key, i) => key === newItemKeys[i]))) {
+                pokemonList.push(object)
+            } else {
+                console.log('Not a real Pokemon !')
+            }
+        }
         return{
             getall: getall,
-            add: add
+            add: add,
+            addv: addv
         }
     }
 )();
 
-//old variable
-// let pokemonList = [];
-
-// pokemonList = [
-//     {
-//         name:"Bulbasaur",
-//         height: 7,
-//         types: ['grass', 'poison']
-//     },
-//     {
-//         name:"Ivysaur",
-//         height: 10,
-//         types: ['water', 'sand']
-//     },    {
-//         name:"Venusaur",
-//         height: 20,
-//         types: ['glass', 'stone']
-//     }
-// ];
-// console.log(pokemonList);
-// loop to print pokemone names and height
-
-// for (let i = 0; i < pokemonList.length; i++) {
-//     // if condition to highlight big pokemons
-//     if (pokemonList[i].height > 10) {
-//         document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow That's BIG!</p>`);
-//     }else{
-//         document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);
-//     }
-// }
 //impelminting for each loop
 
 function itemWriter(item){

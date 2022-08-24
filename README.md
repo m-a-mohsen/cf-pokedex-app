@@ -18,7 +18,7 @@
 
 In the previous task, you created an array of Pokémon in a pokemonList variable. In this task, you’ll be asked to create a for loop to iterate over each object within that array. You’ll also practice using conditional statements.
 
-### Directions:
+### Directions
 
 #### Part 1
 
@@ -37,11 +37,9 @@ Next, add code to highlight special Pokémon in your list. Be sure to keep addin
 
 Array displaying name, height and types for Bulbasaur, Charizard and Squirtle
 
-
 And the threshold value were 1.0, you'd get something like this:
 
 List with names and heights for Bulbasaur, Charizard and Squirtle
-
 
 #### Part 4
 
@@ -50,7 +48,6 @@ Save the changes, then commit and push them to your GitHub repository. Submit th
 ### The challenge
 
 - Practice JavaScript basics with conditionals and loops
-
 
 ### Screenshot
 

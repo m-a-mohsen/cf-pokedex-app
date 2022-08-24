@@ -1,4 +1,4 @@
-# cf-fsi-01-03 (JavaScript Basics Part 2)
+# Pokedex App
 
 ## Table of contents
 

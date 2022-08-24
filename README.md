@@ -1,4 +1,4 @@
-# Pokedex App
+# cf-fsi-01-03 (JavaScript Basics Part 2)
 
 ## Table of contents
 
@@ -16,28 +16,41 @@
 
 ## Overview
 
-"You’ve spent this Exercise learning about both primitive and complex data types. In the task for this Exercise, you'll use what you’ve learned to build the data set of your application in preparation for what you’ll be doing in the next Exercise.
+In the previous task, you created an array of Pokémon in a pokemonList variable. In this task, you’ll be asked to create a for loop to iterate over each object within that array. You’ll also practice using conditional statements.
 
-As mentioned before, you'll be building a Pokédex as an example application, listing Pokémon and information about them. If you need a refresher on the project, have a look at the Achievement 1 project brief. Later in this Achievement, you'll get the chance to build a similar application with a different type of data.
+### Directions:
 
-Let’s build your repository!
+#### Part 1
 
-Directions
+Below the pokemonList array in your “scripts.js” file, create a for loop that iterates over each item in pokemonList:
 
-1- Open the “scripts.js” file of your project and remove all existing code. You're going to set up your application from scratch. As you work on your project, don’t forget to regularly commit your changes on GitHub with meaningful commit messages and add comments to explain and document what your code does. (When you use a project from your portfolio for a job application, the recruiter will most likely take a look at the commit history of your project. They'll want to see that you know how to use Git and that you can write meaningful commit messages, as they're crucial when working in teams and on large projects.).
+Use document.write() inside the loop’s code to write the Pokémon name on your website’s DOM.
+Use what you’ve learned about adding strings in JavaScript to write the Pokémon’s height next to its name, for example, “Bulbasaur (height: 7)”.
 
-2- Create a new variable called pokemonList and assign to it a blank array. This array contains Pokémon data to display in your application.
+#### Part 2
 
-3- Now, add several objects to the array. Each object represents one Pokémon and needs to have the same keys to avoid errors. Add at least the following three keys to each Pokémon object and make up a value for each of them: name (make this a string, e.g., "Bulbasaur"), height (this will be a number, e.g., 7) and types (make this an array of strings, e.g., ['grass', 'poison']). You can use Pokedex.org as a reference. Create at least three Pokémon objects in your pokemonList array.
+You should now be able to open the “index.html” of your project in the browser and see a list of Pokémon appear. Work with the inspector and JavaScript console of your Developer Tools to see if there are any errors in your code. You can also use the Web Inspector to adjust your CSS and make things look nicer.
 
-4- Save the changes, then commit and push them to your GitHub repository.
+#### Part 3
 
-5- Submit the link to your GitHub repository here. Feel free to share additional thoughts or ask questions on your submissions page."
+Next, add code to highlight special Pokémon in your list. Be sure to keep adding comments to explain and document what your code does. Within the loop, add a conditional. The conditional should check if the height is above a certain value (you’re free to pick whatever value you want). If it is, add the note “Wow, that’s big!” to the output. Make sure you set up the conditional so that only one Pokémon has the label “Wow, that’s big!” It could, for example, look like this: “Bulbasaur (height: 7) - Wow, that’s big!”. For example, if you had the following array:
+
+Array displaying name, height and types for Bulbasaur, Charizard and Squirtle
+
+
+And the threshold value were 1.0, you'd get something like this:
+
+List with names and heights for Bulbasaur, Charizard and Squirtle
+
+
+#### Part 4
+
+Save the changes, then commit and push them to your GitHub repository. Submit the link to your GitHub repository here. Feel free to share additional thoughts or ask questions on your submission page.
 
 ### The challenge
 
-- Discuss JavaScript primitive and complex data types as well as how and why they're used.
-- Practice creating and adding data to arrays.
+- Practice JavaScript basics with conditionals and loops
+
 
 ### Screenshot
 

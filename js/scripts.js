@@ -18,3 +18,13 @@ pokemonList = [
         types: ['glass', 'stone']
     }
 ];
+// loop to print pokemone names and height
+
+for (let i = 0; i < pokemonList.length; i++) {
+    // if condition to highlight big pokemons
+    if (pokemonList[i].height > 10) {
+        document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height}) - Wow That's BIG!</p>`);
+    }else{
+        document.write(`<p>${pokemonList[i].name} (height: ${pokemonList[i].height})</p>`);
+    }
+}

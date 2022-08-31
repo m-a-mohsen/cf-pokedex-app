@@ -69,7 +69,15 @@ function pokemonWriteSwitcher(item) {
 }
 // function call
 // pokemonList.forEach(pokemonWriteSwitcher());
-pokemonRepository.getall().forEach(item => pokemonWriteSwitcher(item));
+// pokemonRepository.getall().forEach(item => pokemonWriteSwitcher(item));
+pokemonRepository.getall().forEach( pokemon => {
+    let pokemonUlList = document.querySelector('.pokemon-list');
+    let pokemonList = document.createElement('li');
+    let button = document.createElement('button')
+    button.innerText = pokemon.name;
+    pokemonList.appendChild(button);
+    pokemonUlList.appendChild(pokemonList);
+});
 
 
 

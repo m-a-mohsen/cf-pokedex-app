@@ -3,18 +3,18 @@
 // IIFE variable
 let pokemonRepository = (
     function () {
-       let pokemonList = [
+        let pokemonList = [
             {
-                name:"Bulbasaur",
+                name: "Bulbasaur",
                 height: 7,
                 types: ['grass', 'poison']
             },
             {
-                name:"Ivysaur",
+                name: "Ivysaur",
                 height: 10,
                 types: ['water', 'sand']
-            },    {
-                name:"Venusaur",
+            }, {
+                name: "Venusaur",
                 height: 20,
                 types: ['glass', 'stone']
             }
@@ -23,7 +23,7 @@ let pokemonRepository = (
         function getall() {
             return pokemonList;
         }
-        function add(item){
+        function add(item) {
             pokemonList.push(item)
         }
         // Bonus Task
@@ -31,63 +31,56 @@ let pokemonRepository = (
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
         function addv(object) {
             let orginalKeys = Object.keys(object);
-            let newItemKeys = [ 'name', 'height', 'types' ];
+            let newItemKeys = ['name', 'height', 'types'];
 
-            if (typeof(object) == 'object' &&
-            (orginalKeys.length == newItemKeys.length &&
-                orginalKeys.every((key, i) => key === newItemKeys[i]))) {
+            if (typeof (object) == 'object' &&
+                (orginalKeys.length == newItemKeys.length &&
+                    orginalKeys.every((key, i) => key === newItemKeys[i]))) {
                 pokemonList.push(object)
             } else {
                 console.log('Not a real Pokemon !')
             }
         }
-        return{
+        // a function to creat buttons from an object
+        function addListItem(pokemon) {
+            let pokemonUlList = document.querySelector('.pokemon-list');
+            let pokemonList = document.createElement('li');
+            let button = document.createElement('button');
+            button.classList.add('button-class');
+            button.innerText = pokemon.name;
+            pokemonList.appendChild(button);
+            pokemonUlList.appendChild(pokemonList);
+
+            // button.addEventListener('click', e => {
+            //     showDetails(pokemon)
+            // });
+
+            eventListener(button, pokemon);
+        }
+
+        // a function to add event listener to a node
+        function eventListener(node, object) {
+            node.addEventListener('click', e => showDetails(object))
+        }
+
+        // a function to print name property of an object
+        function showDetails(pokemon) {
+            console.log(pokemon.name);
+        }
+
+        return {
             getall: getall,
             add: add,
-            addv: addv
+            addv: addv,
+            addListItem: addListItem,
+            showDetails: showDetails,
+            eventListener: eventListener
         }
     }
 )();
 
 //impelminting for each loop
 
-function itemWriter(item){
-    document.write(`<p>${item.name} (height: ${item.height})</p>`);
-};
-
-function itemHighlighter(item){
-    document.write(`<p>${item.name} (height: ${item.height})- Wow That's BIG!</p>`);
-};
-
-// combined function
-function pokemonWriteSwitcher(item) {
-    if (item.height > 10) {
-        itemHighlighter(item)
-    } else {
-        itemWriter(item)
-    }
-}
-// function call
-// pokemonList.forEach(pokemonWriteSwitcher());
-// pokemonRepository.getall().forEach(item => pokemonWriteSwitcher(item));
-pokemonRepository.getall().forEach( pokemon => {
-    let pokemonUlList = document.querySelector('.pokemon-list');
-    let pokemonList = document.createElement('li');
-    let button = document.createElement('button')
-    button.innerText = pokemon.name;
-    pokemonList.appendChild(button);
-    pokemonUlList.appendChild(pokemonList);
+pokemonRepository.getall().forEach(pokemon => {
+    pokemonRepository.addListItem(pokemon);
 });
-
-
-
-//                 debuging
-// pokemonList.forEach(pokemonWriteSwitcher());
-// let list = pokemonRepository.getall();
-// console.log(list);
-// console.log(list.forEach(item => heightChecker(item)));
-// list.forEach(item => console.log(item.height));
-// // list.forEach(pokemonWriteSwitcher());
-// // list.forEach(item => console.log(item));
-// // list.forEach(item => console.log(item));
-// list.forEach(item => pokemonWriteSwitcher(item));

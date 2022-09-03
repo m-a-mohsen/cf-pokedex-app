@@ -11,36 +11,36 @@ let pokemonRepository = (
 
         function LoadList() {
             return fetch(apiUrl)
-            .then(data => {
-                return data.json();
-                console.log(data);
+                .then(data => {
+                    return data.json();
+                    console.log(data);
 
-            })
-            .then(json => {
-                
-                json.results.forEach(element => {
-                    let pokemon = {
-                      name : element.name,
-                      url : element.url
-                    }
-                    // console.log(element);
-                    add(pokemon)
-                  })
-            }
-            )
+                })
+                .then(json => {
+
+                    json.results.forEach(element => {
+                        let pokemon = {
+                            name: element.name,
+                            url: element.url
+                        }
+                        // console.log(element);
+                        add(pokemon)
+                    })
+                }
+                )
         }
 
-        function loadDetails(pokemon){
+        function loadDetails(pokemon) {
             const pokemonUrl = pokemon.url;
             return fetch(pokemonUrl)
-            .then(pokemonJson => pokemonJson.json())
-            .then(
-                pokemonData => {
-                    pokemon.imageUrl = pokemonData.sprites.front_default;
-                    pokemon.height = pokemonData.height;
-                }
-            )
-            .catch(err => console.log(err))
+                .then(pokemonJson => pokemonJson.json())
+                .then(
+                    pokemonData => {
+                        pokemon.imageUrl = pokemonData.sprites.front_default;
+                        pokemon.height = pokemonData.height;
+                    }
+                )
+                .catch(err => console.log(err))
         }
 
         function getall() {
@@ -75,8 +75,8 @@ let pokemonRepository = (
 
             if (
                 typeof object === 'object' &&
-                 'name' in object
-                 ) {
+                'name' in object
+            ) {
                 pokemonList.push(object)
             } else {
                 console.log('Not a real Pokemon !')
@@ -108,7 +108,7 @@ let pokemonRepository = (
 
         // a function to print name property of an object
         function showDetails(pokemon) {
-            pokemonRepository.loadDetails(pokemon).then(()=>console.log(pokemon))
+            pokemonRepository.loadDetails(pokemon).then(() => console.log(pokemon))
         }
 
         return {
@@ -118,24 +118,16 @@ let pokemonRepository = (
             addListItem: addListItem,
             showDetails: showDetails,
             eventListener: eventListener,
-            LoadList : LoadList,
+            LoadList: LoadList,
             loadDetails: loadDetails
         }
     }
 )();
 
-//impelminting for each loop
+// Function call
 
-let loadList = pokemonRepository.LoadList();
-console.log({loadList});
-loadList.then((result) => {
+pokemonRepository.LoadList()
+.then((result) =>
     pokemonRepository.getall()
-    .forEach( pokemon => {
-        pokemonRepository.addListItem(pokemon);
-        console.log(pokemon);
-        
-    }
-    )
-}).catch((err) => {
-    console.log(err);
-});// .then((respon) => respon.getall()).forEach(pokemon => pokemon.addListItem())
+        .forEach(pokemon => pokemonRepository.addListItem(pokemon))
+        ).catch((err) => console.log(err));

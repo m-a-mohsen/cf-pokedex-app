@@ -4,11 +4,14 @@
 
 
 // IIFE variable
+//--------------
 let pokemonRepository = (
     function () {
         let pokemonList = [];
         let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+        // Load Pokemons list from api (Name, detalis link)
+        //-------------------------------------------------
         function LoadList() {
             return fetch(apiUrl)
                 .then(data => {
@@ -23,13 +26,13 @@ let pokemonRepository = (
                             name: element.name,
                             url: element.url
                         }
-                        // console.log(element);
                         add(pokemon)
                     })
-                }
-                )
+                })
         }
 
+        // Load Pokemon details for any item of pokemon list.
+        // --------------------------------------------------
         function loadDetails(pokemon) {
             const pokemonUrl = pokemon.url;
             return fetch(pokemonUrl)
@@ -42,35 +45,21 @@ let pokemonRepository = (
                 )
                 .catch(err => console.log(err))
         }
-
+        // get pokemon list array
+        //-----------------------
         function getall() {
             return pokemonList;
         }
+
+        // add Pokemons to pokemon list array
+        //-----------------------------------
         function add(item) {
             pokemonList.push(item)
         }
-
-        // Bonus Task (add verification method to add)
-        // -----option 1------
-
-        // https://www.30secondsofcode.org/articles/s/javascript-array-comparison
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
-        // function addv(object) {
-        //     let orginalKeys = Object.keys(object);
-        //     let newItemKeys = ['name', 'height', 'types'];
-
-        //     if (typeof (object) == 'object' &&
-        //         (orginalKeys.length == newItemKeys.length &&
-        //             orginalKeys.every((key, i) => key === newItemKeys[i]))) {
-        //         pokemonList.push(object)
-        //     } else {
-        //         console.log('Not a real Pokemon !')
-        //     }
-        // }
-        // -----option 2------
-
-        // https://careerfoundry.com/en/course/full-stack-immersion/exercise/apis-ajax-and-asynchronous-behavior
-
+        
+        
+        // add verified Pokemons to pokemon list array (optional)
+        //----------------------------------------------------
         function addv(object) {
 
             if (
@@ -83,7 +72,8 @@ let pokemonRepository = (
             }
         }
 
-        // a function to creat buttons from an object
+        // a function to creat buttons from a pokemon object
+        //--------------------------------------------------
         function addListItem(pokemon) {
             let pokemonUlList = document.querySelector('.pokemon-list');
             let pokemonList = document.createElement('li');
@@ -93,22 +83,19 @@ let pokemonRepository = (
             button.innerText = pokemon.name;
             pokemonList.appendChild(button);
             pokemonUlList.appendChild(pokemonList);
-
-            // button.addEventListener('click', e => {
-            //     showDetails(pokemon)
-            // });
-
             eventListener(button, pokemon);
         }
 
-        // a function to add event listener to a node
+        // a function to add event listener to any DOM node
+        // ------------------------------------------
         function eventListener(node, object) {
             node.addEventListener('click', e => showDetails(object))
         }
 
-        // a function to print name property of an object
+        // a function to consol log name property of an object ????
+        //------------------------------------------------------
         function showDetails(pokemon) {
-            pokemonRepository.loadDetails(pokemon).then(() => console.log(pokemon))
+            pokemonRepository.loadDetails(pokemon).then(() => console.log(pokemon.name))
         }
 
         return {

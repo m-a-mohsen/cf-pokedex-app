@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
-     <!-- Credits to :  https://www.favicon.cc/?action=icon&file_id=930908 -->
+    <!-- Credits to :  https://www.favicon.cc/?action=icon&file_id=930908 -->
 
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <title>Simple App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <link rel="stylesheet" href="css/bsCostumStyle.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    <title>Simple Pokemon App</title>
 </head>
+
 <body>
-
-    <!-- Pokemon list  -->
-    <ul class='pokemon-list'></ul>
-
+    <!-- <button class="btn btn-primary">hi</button> -->
+    
     <!-- Modal Start  -->
     <!-- <button id='show-modal'>Show modal</button> -->
     <div id='modal-container'>
@@ -26,11 +34,75 @@
             <p>Modal text</p>        -->
         <!-- </div> -->
     </div>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Pokemons</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">about</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pokemonModal">
+        Launch demo modal
+    </button> -->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="pokemonModalLabel">Pokemon details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal End  -->
-
-
+    <!-- Pokemon list  -->
+    <ul class='list-group list-group-numbered list-group-flush'></ul>
+    
+    <footer id="about">
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <h1 class="display-2">about</h1>
+              </div>
+              <div class="col">
+                This is a full RESTful API linked to an extensive database detailing everything about the Pokémon main game series. We've covered everything from Pokémon to Berry Flavors.
+              </div>
+            </div>
+          </div>
+    </footer>
     <script src="js/fetch.umd.js"></script>
     <script src="js/polyfill.min.js"></script>
     <script src="js/scripts.js"></script>
+
 </body>
+
 </html>

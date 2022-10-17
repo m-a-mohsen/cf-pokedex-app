@@ -10,7 +10,7 @@ let pokemonRepository = (
         let pokemonList = [];
         let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-        let modalContainer = document.querySelector('#modal-container');
+        let modalContainer = document.querySelector('.modal-body');
 
         // Load Pokemons list from api (Name, detalis link)
         //-------------------------------------------------
@@ -85,12 +85,16 @@ let pokemonRepository = (
         // a function to creat buttons from a pokemon object
         //--------------------------------------------------
         function addListItem(pokemon) {
-            let pokemonUlList = document.querySelector('.pokemon-list');
+            let pokemonUlList = document.querySelector('.list-group');
             let pokemonList = document.createElement('li');
+            pokemonList.classList.add('list-group-item');
 
             let button = document.createElement('button');
-            button.classList.add('button-class');
+            button.classList.add('btn');
+            button.classList.add('btn-primary');
             button.setAttribute('id', `${pokemon.name}`);
+            button.setAttribute('data-bs-toggle', "modal");
+            button.setAttribute('data-bs-target', "#pokemonModal");
             button.innerText = pokemon.name;
             pokemonList.appendChild(button);
             pokemonUlList.appendChild(pokemonList);
@@ -114,14 +118,21 @@ let pokemonRepository = (
 
         // Show content of a selected pokemon on the modal
         function showModal(pokemon) {
-            modalContainer.innerHTML = '';
+            // modalContainer.innerHTML = '';
             let modal = document.createElement('div');
-            modal.classList.add('modal');
+            modal.innerHTML = '';
+            modalContainer.innerHTML = '';
+            // modal.classList.add('modal');
 
-            let closeButtonElement = document.createElement('button');
-            closeButtonElement.classList.add('modal-close');
-            closeButtonElement.innerText = 'Close';
-            closeButtonElement.addEventListener('click', hideModal);
+            // let modalLable = document.querySelector('#pokemonModalLabel');
+            // modalLable.innerHTML = '';
+            // modalLable.innerHTML = `${pokemon.name}`;
+            
+
+            // let closeButtonElement = document.createElement('button');
+            // closeButtonElement.classList.add('modal-close');
+            // closeButtonElement.innerText = 'Close';
+            // closeButtonElement.addEventListener('click', hideModal);
 
             let titleElement = document.createElement('h1');
             titleElement.innerText = pokemon.name;
@@ -135,7 +146,7 @@ let pokemonRepository = (
             imageElement.setAttribute("height", "228");
             imageElement.setAttribute("alt", "Pokemon Picture");
 
-            modal.appendChild(closeButtonElement);
+            // modal.appendChild(closeButtonElement);
             modal.appendChild(titleElement);
             modal.appendChild(contentElement);
             modal.appendChild(imageElement);

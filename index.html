@@ -23,49 +23,30 @@
 </head>
 
 <body>
-    <!-- <button class="btn btn-primary">hi</button> -->
-    
-    <!-- Modal Start  -->
-    <!-- <button id='show-modal'>Show modal</button> -->
-    <div id='modal-container'>
-        <!-- <div class='modal'>
-            <button class='modal-close'>Close</button>
-            <h1>Modal title</h1>
-            <p>Modal text</p>        -->
-        <!-- </div> -->
-    </div>
-
+    <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Pokemons</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">about</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li> -->
-                </ul>
-            </div>
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">about</a>
+                </li>
+                
+            </ul>
         </div>
-    </nav>
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pokemonModal">
-        Launch demo modal
-    </button> -->
+    </div>
+</nav>
+<!-- Navbar end -->
     
-    <!-- Modal -->
+    <!-- Modal start -->
     <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -78,7 +59,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+
                 </div>
             </div>
         </div>
@@ -99,8 +80,7 @@
             </div>
           </div>
     </footer>
-    <script src="js/fetch.umd.js"></script>
-    <script src="js/polyfill.min.js"></script>
+
     <script src="js/scripts.js"></script>
 
 </body>
